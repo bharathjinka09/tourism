@@ -12,26 +12,13 @@ def index(request):
 
     if form.is_valid():
         form.save()
+        messages.success(request,"Message sent successfully!")
         form = ContactForm()
 
     context = {
         'form':form
     }
     return render(request,"index.html",context)
-    # if request.method == 'POST':
-    #     if request.POST.get('name') and request.POST.get('phone') and request.POST.get('email') and request.POST.get('message'):
-    #         contact = Contact()
-    #         contact.name = request.POST.get('name')
-    #         contact.phone = request.POST.get('phone')
-    #         contact.email = request.POST.get('email')
-    #         contact.message = request.POST.get('message')
-    #         contact.save()
-
-    #         return render(request, 'index.html')
-
-    # else:
-    #     return render(request, 'index.html')
-
 
 def createpost(request):
     if request.method == 'POST':

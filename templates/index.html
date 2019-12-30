@@ -252,6 +252,11 @@
             <input type="submit" name="submit" value="Send Message" class="btn">
           </div>
         </form>
+        {% for msg in messages %}
+        <div class="alert alert-{{msg.level_tag}}" role="alert">
+          <p style="background-color:green; color: white; padding: 2%;">{{msg.message}}</p>
+        </div>
+        {% endfor %}
       </div>
   </div>
   </div>
