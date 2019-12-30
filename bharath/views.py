@@ -2,26 +2,35 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Post, Contact
 from django.contrib import messages
+from .forms import ContactForm
 
 # Create your views here.
 
 
 def index(request):
-    if request.method == 'POST':
-        if request.POST.get('name') and request.POST.get('phone') and request.POST.get('email') and request.POST.get('message'):
-            if form.is_valid():
-                messages.success(request, 'Form submission successful')
-            contact = Contact()
-            contact.name = request.POST.get('name')
-            contact.phone = request.POST.get('phone')
-            contact.email = request.POST.get('email')
-            contact.message = request.POST.get('message')
-            contact.save()
+    form = ContactForm(request.POST or None)
 
-            return render(request, 'index.html')
+    if form.is_valid():
+        form.save()
+        form = ContactForm()
 
-    else:
-        return render(request, 'index.html')
+    context = {
+        'form':form
+    }
+    return render(request,"index.html",context)
+    # if request.method == 'POST':
+    #     if request.POST.get('name') and request.POST.get('phone') and request.POST.get('email') and request.POST.get('message'):
+    #         contact = Contact()
+    #         contact.name = request.POST.get('name')
+    #         contact.phone = request.POST.get('phone')
+    #         contact.email = request.POST.get('email')
+    #         contact.message = request.POST.get('message')
+    #         contact.save()
+
+    #         return render(request, 'index.html')
+
+    # else:
+    #     return render(request, 'index.html')
 
 
 def createpost(request):

@@ -235,7 +235,7 @@
 
           <div class="card-panel grey lighten-3">
             <h5>Please fill out this form</h5>
-            <div class="input-field">
+            <!-- <div class="input-field">
               <input type="text" placeholder="Name" name="name" required>
             </div>
             <div class="input-field">
@@ -247,7 +247,8 @@
             <div class="input-field">
               <textarea rows="10" cols="10" class="materialize-textarea" placeholder="Enter Message" name="message"
                 required></textarea>
-            </div>
+            </div> -->
+            {{ form.as_p }}
             <input type="submit" name="submit" value="Send Message" class="btn">
           </div>
         </form>
