@@ -9,6 +9,8 @@ from django.contrib import messages
 def index(request):
     if request.method == 'POST':
         if request.POST.get('name') and request.POST.get('phone') and request.POST.get('email') and request.POST.get('message'):
+            if form.is_valid():
+                messages.success(request, 'Form submission successful')
             contact = Contact()
             contact.name = request.POST.get('name')
             contact.phone = request.POST.get('phone')
