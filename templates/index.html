@@ -253,7 +253,9 @@
           </div>
         </form>
         {% for msg in messages %}
-        <div class="alert alert-{{msg.level_tag}}" role="alert">
+        <div class="alert alert-{{msg.level_tag}} alert-dismissible" role="alert">
+          <button style="background-color:green; color: white;" type="button" class="close" data-dismiss="alert">x</button>
+
           <p style="background-color:green; color: white; padding: 2%;">{{msg.message}}</p>
         </div>
         {% endfor %}
