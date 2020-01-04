@@ -211,11 +211,14 @@
     <form method="POST" class="row">
       <div class="col s12 m6">
         <div class="card-panel teal white-text center">
-          <i class="material-icons">email</i>
+          <!-- <i class="material-icons">email</i> -->
           <h5>Contact Us For Booking</h5>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium fugit tempore hic enim
-            possimus molestias
-            quisquam impedit corrupti eveniet.</p>
+          <p>
+            <i class="material-icons">phone</i>
+            <span>+91 9876543210</span>
+            <i class="material-icons" style="margin-left: 2%;">email</i>
+            <span>contact@gmail.com</span>
+          </p>
         </div>
         <ul class="collection with-header">
           <li class="collection-header">
@@ -254,7 +257,8 @@
         </form>
         {% for msg in messages %}
         <div class="alert alert-{{msg.level_tag}} alert-dismissible" role="alert">
-          <button style="background-color:green; color: white;" type="button" class="close" data-dismiss="alert">x</button>
+          <button style="background-color:green; color: white;" type="button" class="close"
+            data-dismiss="alert">x</button>
 
           <p style="background-color:green; color: white; padding: 2%;">{{msg.message}}</p>
         </div>
