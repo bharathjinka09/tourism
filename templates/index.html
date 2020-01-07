@@ -233,7 +233,7 @@
         </ul>
       </div>
       <div class="col s12 m6">
-        <form action="" method="POST">
+        <form action="{% url 'index' %}" method="POST">
           {% csrf_token %}
 
           <div class="card-panel grey lighten-3">

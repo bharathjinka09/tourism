@@ -2,12 +2,23 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Post, Contact
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 from .forms import ContactForm
 
 # Create your views here.
 
 
 def index(request):
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        message = request.POST['message']
+
+        send_mail(f'Mail from Tourism Website',f'Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}',settings.EMAIL_HOST_USER,[email,'bharathjinka09@gmail.com'],fail_silently=False)
+
     form = ContactForm(request.POST or None)
 
     if form.is_valid():
